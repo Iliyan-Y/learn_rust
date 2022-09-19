@@ -1,11 +1,12 @@
-use std::io;
+use std::{cmp::Ordering, io};
 
-use rand::{random, Rng};
+use rand::Rng;
 
 fn main() {
     // get_input();
     // variables();
     data_types();
+    match_condition();
 }
 
 fn get_input() {
@@ -51,4 +52,22 @@ fn data_types() {
         random_number_2,
         random_number + random_number_2
     )
+}
+
+fn match_condition() {
+    let age2 = rand::thread_rng().gen_range(1..100);
+    match age2 {
+        1..=18 => println!("Important Birthday"),
+        21 | 50 => println!("Important birthday"),
+        65..=i32::MAX => println!("Important birthday"),
+        _ => println!("NOT IMPORTANT BD"), // everything else, required for match statement
+    };
+
+    let my_age = rand::thread_rng().gen_range(1..22);
+    let voting_age = 18;
+    match my_age.cmp(&voting_age) {
+        Ordering::Less => println!("Can't vote"),
+        std::cmp::Ordering::Greater => println!("Can vote"),
+        std::cmp::Ordering::Equal => println!("Can vote for first time"),
+    }
 }
