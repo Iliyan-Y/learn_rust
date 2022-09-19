@@ -7,6 +7,7 @@ fn main() {
     // variables();
     data_types();
     match_condition();
+    arrays();
 }
 
 fn get_input() {
@@ -69,5 +70,35 @@ fn match_condition() {
         Ordering::Less => println!("Can't vote"),
         std::cmp::Ordering::Greater => println!("Can vote"),
         std::cmp::Ordering::Equal => println!("Can vote for first time"),
+    }
+}
+
+fn arrays() {
+    let arr = [1, 2, 3, 4, 5, 6, 7];
+    println!("Length : {}", arr.len());
+    let mut arr_index = 0;
+
+    loop {
+        if arr[arr_index] % 2 == 0 {
+            arr_index += 1;
+            continue;
+        };
+
+        if arr[arr_index] == 7 {
+            break;
+        }
+
+        println!("Val {}", arr[arr_index]);
+        arr_index += 1
+    }
+
+    arr_index = 0;
+    while arr_index < arr.len() {
+        print!("arr loop");
+        arr_index += 1
+    }
+
+    for val in arr.iter() {
+        print!("\nfor loop {}", val);
     }
 }
