@@ -5,9 +5,12 @@ use rand::Rng;
 fn main() {
     // get_input();
     // variables();
-    data_types();
-    match_condition();
-    arrays();
+    // data_types();
+    // match_condition();
+    // arrays();
+    enums();
+
+    let im_string = "string from".to_string();
 }
 
 fn get_input() {
@@ -101,4 +104,29 @@ fn arrays() {
     for val in arr.iter() {
         print!("\nfor loop {}", val);
     }
+}
+
+fn enums() {
+    enum Days {
+        Monday,
+        _Tuesday,
+        _Wednesday,
+        _Thursday,
+        _Friday,
+        Saturday,
+        Sunday,
+    }
+
+    impl Days {
+        fn is_weekend(&self) -> bool {
+            match self {
+                Days::Saturday | Days::Sunday => true,
+                _ => false,
+            }
+        }
+    }
+
+    let today: Days = Days::Sunday;
+
+    println!("Is today weekend ? {}", today.is_weekend());
 }
