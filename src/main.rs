@@ -1,6 +1,8 @@
 use std::{cmp::Ordering, io};
 
 use rand::Rng;
+mod restaurant;
+use crate::restaurant::order_food;
 
 fn main() {
     // get_input();
@@ -8,9 +10,11 @@ fn main() {
     // data_types();
     // match_condition();
     // arrays();
-    enums();
+    //enums();
 
     let im_string = "string from".to_string();
+
+    order_food();
 }
 
 fn get_input() {
